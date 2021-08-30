@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class MyController {
 
@@ -44,12 +46,12 @@ public class MyController {
   }
 
   //================================================================
-  // RETURN SOME PROPERTIES AS SINGLE JSON RECORD
+  // RETURN SOME PROPERTIES AS JSON RECORD
   //================================================================
   // {"name":"John","age":20}
-  @RequestMapping("ReturnsOMEPropertiesAsSingleJSONRecord")
-  String returnsOMEPropertiesAsSingleJSONRecord() {
-    String json = personRepository.returnSomePropertiesAsSingleJSONRecord();
+  @RequestMapping("returnSomePropertiesAsJSONRecord")
+  String returnSomePropertiesAsJSONRecord() {
+    String json = personRepository.returnSomePropertiesAsJSONRecord();
     return json;
   }
 
@@ -60,24 +62,6 @@ public class MyController {
   @RequestMapping("ReturnSomePropertiesAsJSONArray")
   String returnSomePropertiesAsJSON() {
     String json = personRepository.returnSomePropertiesAsJSONArray();
-    return json;
-  }
-
-  //================================================================
-  // RETURN ALL PROPERTIES AS SINGLE JSON RECORD
-  //================================================================
-  @RequestMapping("ReturnAllPropertiesAsSingleJSONRecord")
-  String returnAllPropertiesAsSingleJSONRecord() {
-    String json = personRepository.returnAllPropertiesAsSingleJSONRecord();
-    return json;
-  }
-
-  //================================================================
-  // RETURN ALL PROPERTIES AS JSON ARRAY
-  //================================================================
-  @RequestMapping("ReturnAllPropertiesAsJSONArray")
-  String returnAllPropertiesAsJSON() {
-    String json = personRepository.returnAllPropertiesAsJSONArray();
     return json;
   }
 
