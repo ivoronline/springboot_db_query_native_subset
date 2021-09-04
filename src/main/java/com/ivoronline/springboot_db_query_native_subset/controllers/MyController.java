@@ -30,39 +30,6 @@ public class MyController {
     return nameAge;
   }
 
-  //================================================================
-  // RETURN OBJECT ARRAY
-  //================================================================
-  // ["John",20]
-  @RequestMapping("ReturnObjectArray")
-  Object returnObjectArray() {
-    Object[] properties = (Object[]) personRepository.returnObjectArray();
-    String   name       = (String)   properties[0];
-    Integer  age        = (Integer)  properties[1];
-    System.out.println(name + ", " + age);
-    return properties;
-  }
-
-  //================================================================
-  // RETURN JSON RECORD
-  //================================================================
-  // {"name":"John","age":20}
-  @RequestMapping("ReturnJSONRecord")
-  String returnJSONRecord() {
-    String json = personRepository.returnJSONRecord();
-    return json;
-  }
-
-  //================================================================
-  // RETURN JSON ARRAY
-  //================================================================
-  // [{"name":"John","age":20}, {"name":"John","age":21}]
-  @RequestMapping("ReturnSONArray")
-  String returnSONArray() {
-    String json = personRepository.returnSONArray();
-    return json;
-  }
-
 }
 
 
