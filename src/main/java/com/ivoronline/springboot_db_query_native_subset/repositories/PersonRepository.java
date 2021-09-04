@@ -7,37 +7,37 @@ import org.springframework.data.repository.CrudRepository;
 public interface PersonRepository extends CrudRepository<Person, Integer> {
 
   //=======================================================================================
-  // RETURN SINGLE PROPERTY
+  // RETURN SCALAR
   //=======================================================================================
   // 20
   @Query(
     value = "SELECT age FROM PERSON WHERE NAME = 'John' AND AGE = 20",
     nativeQuery = true
   )
-  Integer returnSingleProperty();
+  Integer returnScalar();
 
   //=======================================================================================
-  // RETURN SOME PROPERTIES AS STRING
+  // RETURN STRING
   //=======================================================================================
   // John,20
   @Query(
     value = "SELECT name, age FROM PERSON WHERE NAME = 'John' AND AGE = 20",
     nativeQuery = true
   )
-  String returnSomePropertiesAsString();
+  String returnString();
 
   //=======================================================================================
-  // RETURN SOME PROPERTIES AS OBJECT ARRAY
+  // RETURN OBJECT ARRAY
   //=======================================================================================
   // ["John",20]
   @Query(
     value = "SELECT name, age FROM PERSON WHERE NAME = 'John' AND AGE = 20",
     nativeQuery = true
   )
-  Object returnSomePropertiesAsObjectArray();
+  Object returnObjectArray();
 
   //=======================================================================================
-  // RETURN SOME PROPERTIES AS JSON RECORD
+  // RETURN JSON RECORD
   //=======================================================================================
   // {"name":"John","age":21}
   @Query(
@@ -46,10 +46,10 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
       "FROM   (SELECT name, age FROM PERSON WHERE NAME = 'John' AND AGE = 20) AS EXPRESSION",
     nativeQuery = true
   )
-  String returnSomePropertiesAsJSONRecord();
+  String returnJSONRecord();
 
   //=======================================================================================
-  // RETURN SOME PROPERTIES AS JSON ARRAY
+  // RETURN JSON ARRAY
   //=======================================================================================
   // [{"name":"John","age":20},{"name":"John","age":21}] Returns String that looks like JSON Array
   // []                                                   Returns [] if no Records are found
@@ -59,6 +59,6 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
       "FROM   (SELECT name, age FROM PERSON WHERE NAME = 'John') AS EXPRESSION",
     nativeQuery = true
   )
-  String returnSomePropertiesAsJSONArray();
+  String returnSONArray();
 
 }
