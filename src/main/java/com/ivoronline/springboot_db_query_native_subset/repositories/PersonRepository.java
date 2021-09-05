@@ -10,20 +10,14 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
   // RETURN SCALAR
   //=======================================================================================
   // 20
-  @Query(
-    value = "SELECT age FROM PERSON WHERE NAME = 'John' AND AGE = 20",
-    nativeQuery = true
-  )
+  @Query(nativeQuery = true, value = "SELECT age FROM PERSON WHERE NAME = 'John' AND AGE = 20")
   Integer returnScalar();
 
   //=======================================================================================
   // RETURN STRING
   //=======================================================================================
   // John,20
-  @Query(
-    value = "SELECT name, age FROM PERSON WHERE NAME = 'John' AND AGE = 20",
-    nativeQuery = true
-  )
+  @Query(nativeQuery = true, value = "SELECT name, age FROM PERSON WHERE NAME = 'John' AND AGE = 20")
   String returnString();
 
 }

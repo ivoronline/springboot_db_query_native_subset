@@ -4,12 +4,10 @@ import com.ivoronline.springboot_db_query_native_subset.entities.Person;
 import com.ivoronline.springboot_db_query_native_subset.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 @Component
-@Order(1)
 public class LoadPersons implements CommandLineRunner {
 
   @Autowired PersonRepository personRepository;
