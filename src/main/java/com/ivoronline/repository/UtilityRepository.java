@@ -1,23 +1,23 @@
-package com.ivoronline.springboot_db_query_native_subset.repositories;
+package com.ivoronline.repository;
 
-import com.ivoronline.springboot_db_query_native_subset.entities.Person;
+import com.ivoronline.entity.Utility;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-public interface PersonRepository extends CrudRepository<Person, Integer> {
+public interface UtilityRepository extends CrudRepository<Utility, Integer> {
 
   //=======================================================================================
   // RETURN SCALAR
   //=======================================================================================
   // 20
-  @Query(nativeQuery = true, value = "SELECT age FROM PERSON WHERE NAME = 'John' AND AGE = 20")
+  @Query(value = "SELECT AGE FROM PERSON WHERE NAME = 'Bill' AND AGE = 30", nativeQuery = true)
   Integer returnScalar();
 
   //=======================================================================================
   // RETURN STRING
   //=======================================================================================
   // John,20
-  @Query(nativeQuery = true, value = "SELECT name, age FROM PERSON WHERE NAME = 'John' AND AGE = 20")
+  @Query(value = "SELECT NAME, AGE FROM PERSON WHERE NAME = 'Bill' AND AGE = 30", nativeQuery = true)
   String returnString();
 
 }
